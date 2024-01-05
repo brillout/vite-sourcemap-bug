@@ -27,6 +27,7 @@ if (!isProduction) {
     base
   })
   app.use(vite.middlewares)
+  globalThis.vite = vite
 } else {
   const compression = (await import('compression')).default
   const sirv = (await import('sirv')).default

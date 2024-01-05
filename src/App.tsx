@@ -3,7 +3,16 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
-  console.log(new Error().stack)
+  const err = new Error().stack
+  console.log('\n[before ssrFixStacktrace]');
+  console.log(err)
+  // @ts-ignore
+  if (globalThis.vite) {
+    // @ts-ignore
+    globalThis.vite.ssrFixStacktrace(err)
+    console.log('\n[after ssrFixStacktrace]');
+    console.log(err)
+  }
   const [count, setCount] = useState(0)
 
   return (
