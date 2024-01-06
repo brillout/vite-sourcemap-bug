@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
-  const err = new Error().stack
+  const err = new Error()
   console.log('\n[before ssrFixStacktrace]');
   console.log(err)
   // @ts-ignore
